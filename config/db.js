@@ -11,7 +11,7 @@ async function connectDB() {
     }
     if (!cached.promise) {
         const opts = { bufferCommands: false };
-        cached.promise = mongoose.connect(`${process.env.MONGODB_URI}quickcart/`, opts)
+        cached.promise = mongoose.connect(process.env.MONGODB_URI, opts)
             .then(mongoose => mongoose);
     }
     cached.conn = await cached.promise;
